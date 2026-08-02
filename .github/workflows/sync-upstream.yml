@@ -1,0 +1,166 @@
+name: Sync upstream
+
+# Auto-merge davila7/claude-code-templates into main, regenerate agent catalog,
+# push main, deploy Pages. No PR.
+
+on:
+  schedule:
+    - cron: "0 7 * * 1"
+  workflow_dispatch:
+    inputs:
+      force_catalog:
+        description: "Regenerate catalog and redeploy even if already up to date"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  issues: write
+
+concurrency:
+  group: sync-upstream-cct
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.final.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          token: ${{ secrets.SYNC_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Fetch upstream
+        run: |
+          git remote add upstream https://github.com/davila7/claude-code-templates.git 2>/dev/null \
+            || git remote set-url upstream https://github.com/davila7/claude-code-templates.git
+          git fetch upstream main
+          git fetch origin main
+          git checkout main
+          git reset --hard origin/main
+
+      - name: Decide
+        id: need
+        run: |
+          if git merge-base --is-ancestor upstream/main HEAD; then
+            echo "upstream_ahead=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "upstream_ahead=true" >> "$GITHUB_OUTPUT"
+          fi
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.force_catalog }}" = "true" ]; then
+            echo "force_catalog=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "force_catalog=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Merge upstream
+        id: merge
+        if: steps.need.outputs.upstream_ahead == 'true'
+        run: |
+          if ! git merge upstream/main --no-edit -m "chore: auto-merge upstream/main $(date -u +%Y-%m-%d)"; then
+            echo "merge_conflict=true" >> "$GITHUB_OUTPUT"
+            git merge --abort || true
+            exit 1
+          fi
+          echo "merge_conflict=false" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/setup-python@v5
+        if: steps.need.outputs.upstream_ahead == 'true' || steps.need.outputs.force_catalog == 'true'
+        with:
+          python-version: "3.12"
+
+      - name: Regenerate catalog
+        if: steps.need.outputs.upstream_ahead == 'true' || steps.need.outputs.force_catalog == 'true'
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_REF_NAME: main
+          PAGES_BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+        run: python scripts/generate_agent_catalog.py
+
+      - name: Commit
+        id: commit
+        if: steps.need.outputs.upstream_ahead == 'true' || steps.need.outputs.force_catalog == 'true'
+        run: |
+          touch site/.nojekyll
+          cp AGENTS.md site/AGENTS.md 2>/dev/null || true
+          git add site/catalog.json site/llms.txt site/.nojekyll site/AGENTS.md scripts/generate_agent_catalog.py 2>/dev/null || true
+          git add site/catalog.json site/llms.txt
+          if ! git diff --staged --quiet; then
+            git commit -m "chore: regenerate agent catalog after upstream sync"
+          fi
+          if [ "$(git rev-parse HEAD)" = "$(git rev-parse origin/main)" ]; then
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Push main
+        id: push
+        if: |
+          (steps.need.outputs.upstream_ahead == 'true' || steps.need.outputs.force_catalog == 'true')
+          && steps.commit.outputs.has_changes == 'true'
+        run: |
+          git push origin HEAD:main
+          echo "pushed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Final flag
+        id: final
+        run: |
+          if [ "${{ steps.push.outputs.pushed }}" = "true" ] || [ "${{ steps.need.outputs.force_catalog }}" = "true" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Issue on conflict
+        if: failure() && steps.merge.outputs.merge_conflict == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.SYNC_TOKEN || secrets.GITHUB_TOKEN }}
+        run: |
+          TITLE="Upstream auto-sync conflict $(date -u +%Y-%m-%d)"
+          BODY='Merge conflict with davila7/claude-code-templates. Resolve locally: git fetch upstream && git merge upstream/main && python scripts/generate_agent_catalog.py && git push'
+          gh issue create --title "$TITLE" --body "$BODY" || true
+
+  deploy:
+    needs: sync
+    if: needs.sync.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_REF_NAME: main
+          PAGES_BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+        run: python scripts/generate_agent_catalog.py
+
+      - run: |
+          touch site/.nojekyll
+          cp AGENTS.md site/AGENTS.md 2>/dev/null || true
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -60,6 +60,15 @@ npx claude-code-templates@latest --skill web-data/search,web-data/scrape,web-dat
 
 **Ready-to-use configurations for Anthropic's Claude Code.** A comprehensive collection of AI agents, custom commands, settings, hooks, external integrations (MCPs), and project templates to enhance your development workflow.
 
+## Agent catalog (GitHub Pages)
+
+This fork also ships a **lean catalog** for coding agents (search + `catalog.json`):
+
+- Site: https://qb-chen.github.io/claude-code-templates/
+- Machine index: https://qb-chen.github.io/claude-code-templates/catalog.json
+- Usage: [`AGENTS.md`](AGENTS.md) · regenerate: `python scripts/generate_agent_catalog.py`
+- Weekly auto-merge from upstream + redeploy: `.github/workflows/sync-upstream.yml`
+
 ## Browse & Install Components and Templates
 
 **[Browse All Templates](https://aitmpl.com)** - Interactive web interface to explore and install 100+ agents, commands, settings, hooks, and MCPs.
