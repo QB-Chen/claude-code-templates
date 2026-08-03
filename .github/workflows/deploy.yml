@@ -22,8 +22,8 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    # Only upstream needs the production environment (forks may lack it).
-    environment: ${{ github.repository_owner == 'davila7' && 'production' || '' }}
+    # Note: do not set `environment: production` here — forks often lack that
+    # environment, and job-level `if: secrets.*` is invalid in GitHub Actions.
     steps:
       - name: Check Cloudflare credentials
         id: creds
