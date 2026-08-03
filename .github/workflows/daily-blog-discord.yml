@@ -21,6 +21,12 @@ jobs:
         run: |
           set -euo pipefail
 
+          # Skip on forks without Discord webhook secrets
+          if [ -z "${DISCORD_WEBHOOK_URL:-}" ]; then
+            echo "Skipping: DISCORD_WEBHOOK_URL secret not configured on this fork."
+            exit 0
+          fi
+
           # Count total articles and pick a random index
           TOTAL=$(jq '.articles | length' docs/blog/blog-articles.json)
           RANDOM_INDEX=$(( RANDOM % TOTAL ))

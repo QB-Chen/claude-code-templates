@@ -21,6 +21,12 @@ jobs:
         run: |
           set -euo pipefail
 
+          # Skip on forks without Discord webhook secrets
+          if [ -z "${DISCORD_WEBHOOK_URL:-}" ]; then
+            echo "Skipping: DISCORD_WEBHOOK_URL secret not configured on this fork."
+            exit 0
+          fi
+
           # Large pool of help/tutorial questions about Claude Code and Claude Code Templates
           QUESTIONS=$(cat <<'QUESTIONS_EOF'
           [

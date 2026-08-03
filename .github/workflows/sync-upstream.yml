@@ -2,6 +2,9 @@ name: Sync upstream
 
 # Auto-merge davila7/claude-code-templates into main, regenerate agent catalog,
 # push main, deploy Pages. No PR.
+#
+# Generated files (docs/components.json, trending, etc.) often conflict; we take
+# upstream on conflicts except for this fork's catalog paths.
 
 on:
   schedule:
@@ -54,8 +57,10 @@ jobs:
         run: |
           if git merge-base --is-ancestor upstream/main HEAD; then
             echo "upstream_ahead=false" >> "$GITHUB_OUTPUT"
+            echo "main already contains upstream/main"
           else
             echo "upstream_ahead=true" >> "$GITHUB_OUTPUT"
+            echo "upstream is ahead; will merge"
           fi
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.force_catalog }}" = "true" ]; then
             echo "force_catalog=true" >> "$GITHUB_OUTPUT"
@@ -63,16 +68,62 @@ jobs:
             echo "force_catalog=false" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Merge upstream
+      - name: Merge upstream (auto-resolve generated-file conflicts)
         id: merge
         if: steps.need.outputs.upstream_ahead == 'true'
         run: |
-          if ! git merge upstream/main --no-edit -m "chore: auto-merge upstream/main $(date -u +%Y-%m-%d)"; then
+          set -e
+          # Paths that belong to this fork's agent-catalog feature — keep ours on conflict
+          KEEP_OURS_REGEX='^(site/|scripts/generate_agent_catalog\.py$|AGENTS\.md$|\.github/workflows/pages\.yml$|\.github/workflows/sync-upstream\.yml$)'
+
+          set +e
+          git merge upstream/main --no-edit -m "chore: auto-merge upstream/main $(date -u +%Y-%m-%d)"
+          MERGE_RC=$?
+          set -e
+
+          if [ "$MERGE_RC" -eq 0 ]; then
+            echo "merge_conflict=false" >> "$GITHUB_OUTPUT"
+            echo "Clean merge"
+            exit 0
+          fi
+
+          echo "Merge reported conflicts; auto-resolving..."
+          CONFLICTS=$(git diff --name-only --diff-filter=U || true)
+          if [ -z "$CONFLICTS" ]; then
+            echo "merge_conflict=true" >> "$GITHUB_OUTPUT"
+            echo "Merge failed without listed conflicts"
+            git merge --abort || true
+            exit 1
+          fi
+
+          echo "Conflicted files:"
+          echo "$CONFLICTS"
+
+          while IFS= read -r f; do
+            [ -z "$f" ] && continue
+            if echo "$f" | grep -Eq "$KEEP_OURS_REGEX"; then
+              echo "  keep ours: $f"
+              git checkout --ours -- "$f" 2>/dev/null || true
+              git add -- "$f" 2>/dev/null || true
+            else
+              echo "  take theirs (upstream): $f"
+              git checkout --theirs -- "$f" 2>/dev/null || true
+              git add -- "$f" 2>/dev/null || true
+            fi
+          done <<< "$CONFLICTS"
+
+          STILL=$(git diff --name-only --diff-filter=U || true)
+          if [ -n "$STILL" ]; then
+            echo "Still unmerged after resolve:"
+            echo "$STILL"
             echo "merge_conflict=true" >> "$GITHUB_OUTPUT"
             git merge --abort || true
             exit 1
           fi
+
+          git commit --no-edit -m "chore: auto-merge upstream/main $(date -u +%Y-%m-%d) (resolved generated-file conflicts)"
           echo "merge_conflict=false" >> "$GITHUB_OUTPUT"
+          echo "Merged with conflict auto-resolution"
 
       - uses: actions/setup-python@v5
         if: steps.need.outputs.upstream_ahead == 'true' || steps.need.outputs.force_catalog == 'true'
@@ -87,13 +138,13 @@ jobs:
           PAGES_BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
         run: python scripts/generate_agent_catalog.py
 
-      - name: Commit
+      - name: Commit catalog
         id: commit
         if: steps.need.outputs.upstream_ahead == 'true' || steps.need.outputs.force_catalog == 'true'
         run: |
           touch site/.nojekyll
           cp AGENTS.md site/AGENTS.md 2>/dev/null || true
-          git add site/catalog.json site/llms.txt site/.nojekyll site/AGENTS.md scripts/generate_agent_catalog.py 2>/dev/null || true
+          git add site/catalog.json site/llms.txt site/.nojekyll site/AGENTS.md 2>/dev/null || true
           git add site/catalog.json site/llms.txt
           if ! git diff --staged --quiet; then
             git commit -m "chore: regenerate agent catalog after upstream sync"
@@ -112,6 +163,16 @@ jobs:
         run: |
           git push origin HEAD:main
           echo "pushed=true" >> "$GITHUB_OUTPUT"
+          {
+            echo "### Auto-synced to main"
+            echo "Upstream merged (with conflict auto-resolve if needed), catalog regenerated, pushed."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Nothing to do
+        if: steps.need.outputs.upstream_ahead != 'true' && steps.need.outputs.force_catalog != 'true'
+        run: |
+          echo "Already up to date with upstream/main."
+          echo "### Already up to date" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Final flag
         id: final
@@ -122,13 +183,13 @@ jobs:
             echo "changed=false" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Issue on conflict
+      - name: Issue on hard merge failure
         if: failure() && steps.merge.outputs.merge_conflict == 'true'
         env:
           GH_TOKEN: ${{ secrets.SYNC_TOKEN || secrets.GITHUB_TOKEN }}
         run: |
           TITLE="Upstream auto-sync conflict $(date -u +%Y-%m-%d)"
-          BODY='Merge conflict with davila7/claude-code-templates. Resolve locally: git fetch upstream && git merge upstream/main && python scripts/generate_agent_catalog.py && git push'
+          BODY='Automated Sync upstream still had unresolvable conflicts after taking upstream for generated files and keeping fork catalog paths. Resolve locally: git fetch upstream && git merge upstream/main && python scripts/generate_agent_catalog.py && git push'
           gh issue create --title "$TITLE" --body "$BODY" || true
 
   deploy:
