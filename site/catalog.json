@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "kind": "claude-code-templates",
-  "generated_at": "2026-08-02T18:09:53Z",
+  "generated_at": "2026-08-03T17:50:58Z",
   "repo": "QB-Chen/claude-code-templates",
   "pages_base_url": "https://qb-chen.github.io/claude-code-templates",
   "official_site": "https://aitmpl.com",
@@ -1145,7 +1145,7 @@
       "path": "cli-tool/components/agents/data-ai/ai-engineer.md",
       "install_key": "data-ai/ai-engineer",
       "install": "npx claude-code-templates@latest --agent data-ai/ai-engineer --yes",
-      "summary": "Use this agent when architecting, implementing, or optimizing end-to-end AI systems—from model selection and training pipelines to production deployment and monitoring. Specifically:\\ \\ \\ \\ \\ \\",
+      "summary": "Use this agent as the generalist entry point for end-to-end AI systems spanning both classical ML (model selection, training pipelines, production serving) and generative-AI/LLM application engineering (RAG, agentic...",
       "tags": [
         "agent",
         "data-ai"
