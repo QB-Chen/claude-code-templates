@@ -1,15 +1,15 @@
 name: Deploy to Cloudflare Pages
 
-# Upstream (davila7) deploys aitmpl.com via Cloudflare.
-# On forks this should not fail red: skip unless Cloudflare secrets exist
-# and (optionally) you intentionally enable fork deploys.
+# Upstream deploys aitmpl.com. On forks without Cloudflare secrets, this
+# workflow must still exit green (do not use secrets in job-level `if` —
+# that invalidates the workflow and fails with zero jobs).
 
 on:
   push:
     branches: [main]
     paths:
-      - 'dashboard/**'
-      - '.github/workflows/deploy.yml'
+      - "dashboard/**"
+      - ".github/workflows/deploy.yml"
   workflow_dispatch:
 
 permissions:
@@ -22,42 +22,51 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    # Skip when this is a fork without Cloudflare credentials (common).
-    # Upstream has CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID set.
-    if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' && secrets.CLOUDFLARE_ACCOUNT_ID != '' }}
-    environment: production
+    # Only upstream needs the production environment (forks may lack it).
+    environment: ${{ github.repository_owner == 'davila7' && 'production' || '' }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v6
+      - name: Check Cloudflare credentials
+        id: creds
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -z "${CLOUDFLARE_API_TOKEN}" ] || [ -z "${CLOUDFLARE_ACCOUNT_ID}" ]; then
+            echo "has_creds=false" >> "$GITHUB_OUTPUT"
+            echo "No CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID — skipping deploy (normal on forks)."
+            echo "Agent catalog: https://qb-chen.github.io/claude-code-templates/"
+          else
+            echo "has_creds=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout
+        if: steps.creds.outputs.has_creds == 'true'
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        if: steps.creds.outputs.has_creds == 'true'
+        uses: actions/setup-node@v6
         with:
           node-version: 22
+
       - name: Install dependencies
+        if: steps.creds.outputs.has_creds == 'true'
         run: npm install
         working-directory: dashboard
+
       - name: Build
+        if: steps.creds.outputs.has_creds == 'true'
         run: npm run build
         working-directory: dashboard
         env:
           PUBLIC_CLERK_PUBLISHABLE_KEY: "pk_live_Y2xlcmsuYWl0bXBsLmNvbSQ"
           PUBLIC_GITHUB_CLIENT_ID: "Ov23li3KjfA4cuLi5c0k"
           PUBLIC_COMPONENTS_JSON_URL: "/components.json"
+
       - name: Deploy www + app.aitmpl.com
+        if: steps.creds.outputs.has_creds == 'true'
         run: npx wrangler pages deploy dist --project-name=aitmpl-dashboard --commit-dirty=true
         working-directory: dashboard
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-
-  skip-notice:
-    runs-on: ubuntu-latest
-    if: ${{ secrets.CLOUDFLARE_API_TOKEN == '' || secrets.CLOUDFLARE_ACCOUNT_ID == '' }}
-    steps:
-      - name: Cloudflare deploy skipped
-        run: |
-          echo "Skipping Cloudflare Pages deploy."
-          echo "This fork has no CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID secrets."
-          echo "Agent catalog is on GitHub Pages, not Cloudflare:"
-          echo "  https://qb-chen.github.io/claude-code-templates/"
-          echo "To deploy to your own Cloudflare project, add those secrets under"
-          echo "  Settings → Secrets and variables → Actions"
-          echo "and point --project-name at your project."

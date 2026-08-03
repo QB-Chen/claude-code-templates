@@ -11,8 +11,8 @@ permissions:
 
 jobs:
   update-star-history:
+    if: github.repository_owner == 'davila7'
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6

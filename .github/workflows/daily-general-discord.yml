@@ -11,6 +11,7 @@ permissions:
 jobs:
   engage-community:
     name: Post Daily Engagement Question on Discord
+    if: github.repository_owner == 'davila7'
     runs-on: ubuntu-latest
     timeout-minutes: 5
 

@@ -11,6 +11,7 @@ permissions:
 jobs:
   share-component:
     name: Share Random Component on Discord
+    if: github.repository_owner == 'davila7'
     runs-on: ubuntu-latest
     timeout-minutes: 5
 
