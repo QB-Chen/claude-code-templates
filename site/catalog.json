@@ -1,9 +1,9 @@
 {
   "version": "1.0",
   "kind": "claude-code-templates",
-  "generated_at": "2026-08-03T17:50:58Z",
+  "generated_at": "2026-08-10T08:25:18Z",
   "repo": "QB-Chen/claude-code-templates",
-  "pages_base_url": "https://qb-chen.github.io/claude-code-templates",
+  "pages_base_url": "https://QB-Chen.github.io/claude-code-templates",
   "official_site": "https://aitmpl.com",
   "install_cli": "npx claude-code-templates@latest",
   "item_count": 1913,
@@ -109,7 +109,7 @@
     },
     {
       "tag": "productivity",
-      "count": 50
+      "count": 51
     },
     {
       "tag": "programming-languages",
@@ -128,11 +128,11 @@
       "count": 43
     },
     {
-      "tag": "database",
-      "count": 41
+      "tag": "data-ai",
+      "count": 40
     },
     {
-      "tag": "data-ai",
+      "tag": "database",
       "count": 40
     },
     {
@@ -247,7 +247,7 @@
     },
     {
       "category": "productivity",
-      "count": 50
+      "count": 51
     },
     {
       "category": "programming-languages",
@@ -266,11 +266,11 @@
       "count": 43
     },
     {
-      "category": "database",
-      "count": 41
+      "category": "data-ai",
+      "count": 40
     },
     {
-      "category": "data-ai",
+      "category": "database",
       "count": 40
     },
     {
@@ -1415,7 +1415,7 @@
       "path": "cli-tool/components/agents/data-ai/ml-engineer.md",
       "install_key": "data-ai/ml-engineer",
       "install": "npx claude-code-templates@latest --agent data-ai/ml-engineer --yes",
-      "summary": "Use this agent when building production ML systems requiring model training pipelines, model serving infrastructure, performance optimization, and automated retraining. Specifically:\\ \\ \\ \\ \\ \\",
+      "summary": "Use this agent when building production ML systems end-to-end - training pipelines, initial model serving/deployment, and automated retraining - covering the full lifecycle from data validation through training,...",
       "tags": [
         "agent",
         "data-ai"
@@ -4493,7 +4493,7 @@
       "path": "cli-tool/components/agents/expert-advisors/droid.md",
       "install_key": "expert-advisors/droid",
       "install": "npx claude-code-templates@latest --agent expert-advisors/droid --yes",
-      "summary": "Provides installation guidance, usage examples, and automation patterns for the Droid CLI, with emphasis on droid exec for CI/CD and non-interactive automation",
+      "summary": "Use this agent for installation guidance, usage examples, and automation patterns for the Droid CLI (Factory AI), with emphasis on droid exec for CI/CD and non-interactive automation. Examples:",
       "tags": [
         "agent",
         "expert-advisors"
@@ -17900,7 +17900,7 @@
       "path": "cli-tool/components/settings/model/use-haiku.json",
       "install_key": "model/use-haiku",
       "install": "npx claude-code-templates@latest --setting model/use-haiku --yes",
-      "summary": "Configure Claude Code to use Claude 3.5 Haiku model for faster responses.",
+      "summary": "Configure Claude Code to use Claude Haiku 4.5 model for faster responses.",
       "tags": [
         "setting",
         "model"
@@ -17918,7 +17918,7 @@
       "path": "cli-tool/components/settings/model/use-sonnet.json",
       "install_key": "model/use-sonnet",
       "install": "npx claude-code-templates@latest --setting model/use-sonnet --yes",
-      "summary": "Configure Claude Code to use Claude 3.5 Sonnet model.",
+      "summary": "Configure Claude Code to use Claude Sonnet 4.6 model.",
       "tags": [
         "setting",
         "model"
@@ -24059,24 +24059,6 @@
       "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/skills/database/neon-instagres/SKILL.md"
     },
     {
-      "id": "skills__database__postgres-schema-design",
-      "name": "postgres-schema-design",
-      "slug": "postgres-schema-design",
-      "type": "skills",
-      "type_label": "Skills",
-      "category": "database",
-      "path": "cli-tool/components/skills/database/postgres-schema-design/SKILL.md",
-      "install_key": "database/postgres-schema-design",
-      "install": "npx claude-code-templates@latest --skill database/postgres-schema-design --yes",
-      "summary": "Comprehensive PostgreSQL-specific table design reference covering data types, indexing, constraints, performance patterns, and advanced features",
-      "tags": [
-        "skill",
-        "database"
-      ],
-      "github_url": "https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/skills/database/postgres-schema-design/SKILL.md",
-      "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/skills/database/postgres-schema-design/SKILL.md"
-    },
-    {
       "id": "skills__database__postgresql",
       "name": "postgresql",
       "slug": "postgresql",
@@ -29784,6 +29766,30 @@
       ],
       "github_url": "https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/skills/productivity/address-github-comments/SKILL.md",
       "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/skills/productivity/address-github-comments/SKILL.md"
+    },
+    {
+      "id": "skills__productivity__avoid-ai-writing",
+      "name": "avoid-ai-writing",
+      "slug": "avoid-ai-writing",
+      "type": "skills",
+      "type_label": "Skills",
+      "category": "productivity",
+      "path": "cli-tool/components/skills/productivity/avoid-ai-writing/SKILL.md",
+      "install_key": "productivity/avoid-ai-writing",
+      "install": "npx claude-code-templates@latest --skill productivity/avoid-ai-writing --yes",
+      "summary": "Audit and rewrite content to remove AI writing patterns (\"AI-isms\"). Use this skill when asked to \"remove AI-isms,\" \"clean up AI writing,\" \"edit writing for AI patterns,\" \"audit writing for AI tells,\" or \"make this...",
+      "tags": [
+        "skill",
+        "Writing",
+        "Editing",
+        "Content Quality",
+        "AI Writing Patterns",
+        "Voice",
+        "Copy Editing",
+        "productivity"
+      ],
+      "github_url": "https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/skills/productivity/avoid-ai-writing/SKILL.md",
+      "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/skills/productivity/avoid-ai-writing/SKILL.md"
     },
     {
       "id": "skills__productivity__brainstorming",

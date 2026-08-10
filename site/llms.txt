@@ -7,16 +7,16 @@
 ## For coding agents
 
 1. Fetch catalog JSON:
-   - https://qb-chen.github.io/claude-code-templates/catalog.json
+   - https://QB-Chen.github.io/claude-code-templates/catalog.json
 2. Filter by type/tags/category; pick 1-3 components.
 3. Install with the `install` field or read `readme_url` / `github_url`.
 
 ## Key URLs
 
-- [Human site](https://qb-chen.github.io/claude-code-templates/)
-- [catalog.json](https://qb-chen.github.io/claude-code-templates/catalog.json)
-- [llms.txt](https://qb-chen.github.io/claude-code-templates/llms.txt)
-- [AGENTS.md](https://qb-chen.github.io/claude-code-templates/AGENTS.md)
+- [Human site](https://QB-Chen.github.io/claude-code-templates/)
+- [catalog.json](https://QB-Chen.github.io/claude-code-templates/catalog.json)
+- [llms.txt](https://QB-Chen.github.io/claude-code-templates/llms.txt)
+- [AGENTS.md](https://QB-Chen.github.io/claude-code-templates/AGENTS.md)
 
 ## Types
 
