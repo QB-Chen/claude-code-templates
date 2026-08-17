@@ -1,12 +1,12 @@
 {
   "version": "1.0",
   "kind": "claude-code-templates",
-  "generated_at": "2026-08-10T08:25:18Z",
+  "generated_at": "2026-08-17T07:51:13Z",
   "repo": "QB-Chen/claude-code-templates",
   "pages_base_url": "https://QB-Chen.github.io/claude-code-templates",
   "official_site": "https://aitmpl.com",
   "install_cli": "npx claude-code-templates@latest",
-  "item_count": 1913,
+  "item_count": 1916,
   "types": [
     {
       "id": "skills",
@@ -26,12 +26,12 @@
     {
       "id": "mcps",
       "label": "MCPs",
-      "count": 92
+      "count": 94
     },
     {
       "id": "settings",
       "label": "Settings",
-      "count": 69
+      "count": 70
     },
     {
       "id": "hooks",
@@ -85,7 +85,7 @@
     },
     {
       "tag": "mcp",
-      "count": 96
+      "count": 98
     },
     {
       "tag": "security",
@@ -97,19 +97,19 @@
     },
     {
       "tag": "setting",
-      "count": 69
+      "count": 70
     },
     {
       "tag": "hook",
       "count": 62
     },
     {
-      "tag": "expert-advisors",
-      "count": 52
+      "tag": "productivity",
+      "count": 53
     },
     {
-      "tag": "productivity",
-      "count": 51
+      "tag": "expert-advisors",
+      "count": 52
     },
     {
       "tag": "programming-languages",
@@ -242,12 +242,12 @@
       "count": 71
     },
     {
-      "category": "expert-advisors",
-      "count": 52
+      "category": "productivity",
+      "count": 53
     },
     {
-      "category": "productivity",
-      "count": 51
+      "category": "expert-advisors",
+      "count": 52
     },
     {
       "category": "programming-languages",
@@ -461,7 +461,7 @@
       "path": "cli-tool/components/agents/ai-specialists/llms-maintainer.md",
       "install_key": "ai-specialists/llms-maintainer",
       "install": "npx claude-code-templates@latest --agent ai-specialists/llms-maintainer --yes",
-      "summary": "LLMs.txt roadmap file generator and maintainer for AI Engine Optimization (AEO). Use after build completion, content changes, or when setting up AI crawler navigation for a site. Detects framework, scans site...",
+      "summary": "LLMs.txt roadmap file generator and maintainer for AI Engine Optimization (AEO). Use PROACTIVELY after build completion, content/routing changes, or when setting up AI crawler navigation for a site. Detects...",
       "tags": [
         "agent",
         "ai-specialists"
@@ -983,7 +983,7 @@
       "path": "cli-tool/components/agents/business-marketing/sales-engineer.md",
       "install_key": "business-marketing/sales-engineer",
       "install": "npx claude-code-templates@latest --agent business-marketing/sales-engineer --yes",
-      "summary": "Use this agent when you need to conduct technical pre-sales activities including solution architecture, proof-of-concept development, and technical demonstrations for complex sales deals. Specifically:\\ \\ \\ \\ \\ \\",
+      "summary": "Use this agent when you need to conduct technical pre-sales activities including solution architecture, proof-of-concept development, and technical demonstrations for complex sales deals. Specifically:\\ \\ \\ \\ \\ \\ \\ \\...",
       "tags": [
         "agent",
         "business-marketing"
@@ -1001,7 +1001,7 @@
       "path": "cli-tool/components/agents/business-marketing/salesforce-expert.md",
       "install_key": "business-marketing/salesforce-expert",
       "install": "npx claude-code-templates@latest --agent business-marketing/salesforce-expert --yes",
-      "summary": "Provide expert Salesforce Platform guidance, including Apex Enterprise Patterns, LWC, integration, and Aura-to-LWC migration.",
+      "summary": "Use this agent for expert Salesforce Platform guidance, including Apex Enterprise Patterns, LWC development, integrations, Aura-to-LWC migration, and Flow-vs-Apex architecture decisions. Use PROACTIVELY when...",
       "tags": [
         "agent",
         "business-marketing"
@@ -1847,7 +1847,7 @@
       "path": "cli-tool/components/agents/database/database-admin.md",
       "install_key": "database/database-admin",
       "install": "npx claude-code-templates@latest --agent database/database-admin --yes",
-      "summary": "Database administration specialist for operations, backups, replication, and monitoring. Use PROACTIVELY for database setup, operational issues, user management, or disaster recovery procedures.",
+      "summary": "Database administration specialist for PostgreSQL, MySQL, MongoDB, and Redis operations, backups, replication, and monitoring. Use PROACTIVELY for database setup, operational issues, user management, or disaster...",
       "tags": [
         "agent",
         "database"
@@ -2144,6 +2144,24 @@
       "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/agents/deep-research-team/fact-checker.md"
     },
     {
+      "id": "agents__deep-research-team__multi-source-searcher",
+      "name": "multi-source-searcher",
+      "slug": "multi-source-searcher",
+      "type": "agents",
+      "type_label": "Agents",
+      "category": "deep-research-team",
+      "path": "cli-tool/components/agents/deep-research-team/multi-source-searcher.md",
+      "install_key": "deep-research-team/multi-source-searcher",
+      "install": "npx claude-code-templates@latest --agent deep-research-team/multi-source-searcher --yes",
+      "summary": "Use when you need to find specific information across multiple sources using advanced search strategies, query optimization, and targeted information retrieval. Invoke this agent when the priority is locating...",
+      "tags": [
+        "agent",
+        "deep-research-team"
+      ],
+      "github_url": "https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/agents/deep-research-team/multi-source-searcher.md",
+      "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/agents/deep-research-team/multi-source-searcher.md"
+    },
+    {
       "id": "agents__deep-research-team__nia-oracle",
       "name": "nia-oracle",
       "slug": "nia-oracle",
@@ -2286,24 +2304,6 @@
       ],
       "github_url": "https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/agents/deep-research-team/research-synthesizer.md",
       "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/agents/deep-research-team/research-synthesizer.md"
-    },
-    {
-      "id": "agents__deep-research-team__search-specialist",
-      "name": "search-specialist",
-      "slug": "search-specialist",
-      "type": "agents",
-      "type_label": "Agents",
-      "category": "deep-research-team",
-      "path": "cli-tool/components/agents/deep-research-team/search-specialist.md",
-      "install_key": "deep-research-team/search-specialist",
-      "install": "npx claude-code-templates@latest --agent deep-research-team/search-specialist --yes",
-      "summary": "Use when you need to find specific information across multiple sources using advanced search strategies, query optimization, and targeted information retrieval. Invoke this agent when the priority is locating...",
-      "tags": [
-        "agent",
-        "deep-research-team"
-      ],
-      "github_url": "https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/agents/deep-research-team/search-specialist.md",
-      "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/agents/deep-research-team/search-specialist.md"
     },
     {
       "id": "agents__deep-research-team__technical-researcher",
@@ -17045,6 +17045,42 @@
       "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/mcps/productivity/google-workspace.json"
     },
     {
+      "id": "mcps__productivity__humanpen",
+      "name": "humanpen",
+      "slug": "humanpen",
+      "type": "mcps",
+      "type_label": "MCPs",
+      "category": "productivity",
+      "path": "cli-tool/components/mcps/productivity/humanpen.json",
+      "install_key": "productivity/humanpen",
+      "install": "npx claude-code-templates@latest --mcp productivity/humanpen --yes",
+      "summary": "Document-level AI humanizer — rewrite a whole .docx/.pptx, selected passages, or Turnitin/iThenticate-flagged text in place, keeping formatting, tables, citations and formulas intact.",
+      "tags": [
+        "mcp",
+        "productivity"
+      ],
+      "github_url": "https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/mcps/productivity/humanpen.json",
+      "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/mcps/productivity/humanpen.json"
+    },
+    {
+      "id": "mcps__productivity__local-mcp",
+      "name": "local mcp",
+      "slug": "local-mcp",
+      "type": "mcps",
+      "type_label": "MCPs",
+      "category": "productivity",
+      "path": "cli-tool/components/mcps/productivity/local-mcp.json",
+      "install_key": "productivity/local-mcp",
+      "install": "npx claude-code-templates@latest --mcp productivity/local-mcp --yes",
+      "summary": "Connect Claude Code to 160+ native macOS apps — Mail, Calendar, Contacts, Messages, Notes, Reminders, Finder, Safari, Teams, Slack, WhatsApp, OneDrive, Google Drive, Microsoft 365, Outlook, Word, Excel, PowerPoint,...",
+      "tags": [
+        "mcp",
+        "productivity"
+      ],
+      "github_url": "https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/mcps/productivity/local-mcp.json",
+      "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/mcps/productivity/local-mcp.json"
+    },
+    {
       "id": "mcps__productivity__monday",
       "name": "monday",
       "slug": "monday",
@@ -17943,6 +17979,24 @@
       ],
       "github_url": "https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/settings/partnerships/glm-coding-plan.json",
       "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/settings/partnerships/glm-coding-plan.json"
+    },
+    {
+      "id": "settings__partnerships__minimax-provider",
+      "name": "minimax provider",
+      "slug": "minimax-provider",
+      "type": "settings",
+      "type_label": "Settings",
+      "category": "partnerships",
+      "path": "cli-tool/components/settings/partnerships/minimax-provider.json",
+      "install_key": "partnerships/minimax-provider",
+      "install": "npx claude-code-templates@latest --setting partnerships/minimax-provider --yes",
+      "summary": "MiniMax AI Provider - Configure Claude Code to use MiniMax's Anthropic-compatible API. MiniMax-M3 supports a 1,000,000-token context window and text, image, and video input. MiniMax-M2.7 remains available as an...",
+      "tags": [
+        "setting",
+        "partnerships"
+      ],
+      "github_url": "https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/settings/partnerships/minimax-provider.json",
+      "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/settings/partnerships/minimax-provider.json"
     },
     {
       "id": "settings__permissions__additional-directories",

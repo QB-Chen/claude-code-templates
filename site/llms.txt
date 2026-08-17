@@ -1,6 +1,6 @@
 # Claude Code Templates - Agent Catalog
 
-> Lean index of 1913 Claude Code components (agents, commands, skills, MCPs, hooks, settings, loops).
+> Lean index of 1916 Claude Code components (agents, commands, skills, MCPs, hooks, settings, loops).
 > Source: https://github.com/QB-Chen/claude-code-templates
 > Official browse UI: https://aitmpl.com
 
@@ -128,7 +128,7 @@
 - [test-coverage-loop](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/loops/engineering/test-coverage-loop.md): Adds meaningful tests pass after pass until the suite reaches a target coverage threshold and stays green. | `npx claude-code-templates@latest --loop engineering/test-coverage-loop --yes`
 - [ticket-to-pr-loop](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/loops/engineering/ticket-to-pr-loop.md): Converts open bug reports and issues into verified, reviewer-ready pull requests, one ticket per pass. | `npx claude-code-templates@latest --loop engineering/ticket-to-pr-loop --yes`
 
-### MCPs (92)
+### MCPs (94)
 
 - [alpaca trading](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/mcps/integration/alpaca-trading.json): Trading platform MCP server enabling stock, ETF, crypto, and options trading via Alpaca's API. Supports market data, portfolio management, a | `npx claude-code-templates@latest --mcp integration/alpaca-trading --yes`
 - [android mcp](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/mcps/devtools/android-mcp.json): MCP Server for interacting with Android devices. Control, inspect, and automate Android devices via ADB through Claude. | `npx claude-code-templates@latest --mcp devtools/android-mcp --yes`
@@ -155,7 +155,7 @@
 - [elasticsearch](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/mcps/devtools/elasticsearch.json): MCP server for connecting to Elasticsearch data and indices. Supports search queries, mappings, ES|QL, and shard information through natural | `npx claude-code-templates@latest --mcp devtools/elasticsearch --yes`
 - [elevenlabs](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/mcps/audio/elevenlabs.json): Official ElevenLabs MCP for text-to-speech, voice cloning, audio processing, and transcription. Generate AI voices, design custom voices, is | `npx claude-code-templates@latest --mcp audio/elevenlabs --yes`
 - [explorium](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/mcps/web-data/explorium.json): Explorium MCP — live B2B company and contact data (150M+ businesses, 800M+ professionals, 4,000+ signals, 50+ data sources) for lead-list bu | `npx claude-code-templates@latest --mcp web-data/explorium --yes`
-- ... and 67 more — see catalog.json
+- ... and 69 more — see catalog.json
 
 ### Project templates (4)
 
@@ -173,7 +173,7 @@
 - [SANDBOX DEBUGGING](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/sandbox/cloudflare/SANDBOX_DEBUGGING.md): **File**: `launcher.ts` - Detailed logging of each execution step - Worker availability checks - Code generation monitoring - Fallback to di | `npx claude-code-templates@latest --sandbox cloudflare/SANDBOX_DEBUGGING --yes`
 - [SANDBOX DEBUGGING](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/sandbox/e2b/SANDBOX_DEBUGGING.md): **Archivo**: `e2b-launcher.py` - Logging detallado de cada paso - Verificación de instalación de Claude Code - Monitoreo de permisos y ambie | `npx claude-code-templates@latest --sandbox e2b/SANDBOX_DEBUGGING --yes`
 
-### Settings (69)
+### Settings (70)
 
 - [additional directories](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/settings/permissions/additional-directories.json): Grant access to additional directories outside the current project. Useful for monorepo setups, shared libraries, or when working with docum | `npx claude-code-templates@latest --setting permissions/additional-directories --yes`
 - [allow git operations](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/settings/permissions/allow-git-operations.json): Allow common git operations for version control workflow. Permits git status, diff, add, commit, and push operations while maintaining secur | `npx claude-code-templates@latest --setting permissions/allow-git-operations --yes`
@@ -200,7 +200,7 @@
 - [deny sensitive files](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/settings/permissions/deny-sensitive-files.json): Deny access to sensitive files like environment variables and secrets. | `npx claude-code-templates@latest --setting permissions/deny-sensitive-files --yes`
 - [development mode](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/settings/permissions/development-mode.json): Comprehensive permissions for active development. Allows most development tools and operations while maintaining security boundaries. Ideal  | `npx claude-code-templates@latest --setting permissions/development-mode --yes`
 - [development utils](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/settings/environment/development-utils.json): Enhanced development environment configuration with useful utilities and debugging features. Includes built-in ripgrep usage, terminal title | `npx claude-code-templates@latest --setting environment/development-utils --yes`
-- ... and 44 more — see catalog.json
+- ... and 45 more — see catalog.json
 
 ### Skills (895)
 
