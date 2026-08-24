@@ -1,22 +1,22 @@
 {
   "version": "1.0",
   "kind": "claude-code-templates",
-  "generated_at": "2026-08-17T07:51:13Z",
+  "generated_at": "2026-08-24T07:56:14Z",
   "repo": "QB-Chen/claude-code-templates",
   "pages_base_url": "https://QB-Chen.github.io/claude-code-templates",
   "official_site": "https://aitmpl.com",
   "install_cli": "npx claude-code-templates@latest",
-  "item_count": 1916,
+  "item_count": 1926,
   "types": [
     {
       "id": "skills",
       "label": "Skills",
-      "count": 895
+      "count": 896
     },
     {
       "id": "agents",
       "label": "Agents",
-      "count": 421
+      "count": 422
     },
     {
       "id": "commands",
@@ -26,12 +26,12 @@
     {
       "id": "mcps",
       "label": "MCPs",
-      "count": 94
+      "count": 101
     },
     {
       "id": "settings",
       "label": "Settings",
-      "count": 70
+      "count": 71
     },
     {
       "id": "hooks",
@@ -57,11 +57,11 @@
   "top_tags": [
     {
       "tag": "skill",
-      "count": 895
+      "count": 896
     },
     {
       "tag": "agent",
-      "count": 421
+      "count": 422
     },
     {
       "tag": "command",
@@ -85,11 +85,11 @@
     },
     {
       "tag": "mcp",
-      "count": 98
+      "count": 105
     },
     {
       "tag": "security",
-      "count": 85
+      "count": 86
     },
     {
       "tag": "business-marketing",
@@ -97,7 +97,7 @@
     },
     {
       "tag": "setting",
-      "count": 70
+      "count": 71
     },
     {
       "tag": "hook",
@@ -117,7 +117,7 @@
     },
     {
       "tag": "devtools",
-      "count": 46
+      "count": 49
     },
     {
       "tag": "development-tools",
@@ -212,8 +212,8 @@
       "count": 16
     },
     {
-      "tag": "orchestration",
-      "count": 15
+      "tag": "web-data",
+      "count": 16
     }
   ],
   "top_categories": [
@@ -235,7 +235,7 @@
     },
     {
       "category": "security",
-      "count": 85
+      "count": 86
     },
     {
       "category": "business-marketing",
@@ -255,7 +255,7 @@
     },
     {
       "category": "devtools",
-      "count": 45
+      "count": 48
     },
     {
       "category": "development-tools",
@@ -342,6 +342,10 @@
       "count": 16
     },
     {
+      "category": "web-data",
+      "count": 16
+    },
+    {
       "category": "git",
       "count": 15
     },
@@ -367,10 +371,6 @@
     },
     {
       "category": "engineering",
-      "count": 13
-    },
-    {
-      "category": "web-data",
       "count": 13
     },
     {
@@ -1127,7 +1127,7 @@
       "path": "cli-tool/components/agents/data-ai/adr-generator.md",
       "install_key": "data-ai/adr-generator",
       "install": "npx claude-code-templates@latest --agent data-ai/adr-generator --yes",
-      "summary": "Expert agent for creating comprehensive Architectural Decision Records (ADRs) with structured formatting optimized for AI consumption and human readability.",
+      "summary": "Use when you need to formalize a technical or architectural decision as a structured Architectural Decision Record (ADR), or when a team has debated an option (database choice, framework, messaging pattern, auth...",
       "tags": [
         "agent",
         "data-ai"
@@ -1253,7 +1253,7 @@
       "path": "cli-tool/components/agents/data-ai/computer-vision-engineer.md",
       "install_key": "data-ai/computer-vision-engineer",
       "install": "npx claude-code-templates@latest --agent data-ai/computer-vision-engineer --yes",
-      "summary": "Computer vision and image processing specialist. Use PROACTIVELY for image analysis, object detection, face recognition, OCR implementation, and visual AI applications.",
+      "summary": "Use this agent for image/video analysis systems requiring classical or trainable CV models: object detection, face recognition, OCR/document analysis, real-time video and multi-object tracking, image quality...",
       "tags": [
         "agent",
         "data-ai"
@@ -7434,6 +7434,24 @@
       ],
       "github_url": "https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/agents/security/read-only-auditor.md",
       "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/agents/security/read-only-auditor.md"
+    },
+    {
+      "id": "agents__security__repo-publication-auditor",
+      "name": "repo-publication-auditor",
+      "slug": "repo-publication-auditor",
+      "type": "agents",
+      "type_label": "Agents",
+      "category": "security",
+      "path": "cli-tool/components/agents/security/repo-publication-auditor.md",
+      "install_key": "security/repo-publication-auditor",
+      "install": "npx claude-code-templates@latest --agent security/repo-publication-auditor --yes",
+      "summary": "Use this agent before a repository becomes public — a first release, an internal project being open-sourced, or a private repo about to be flipped. It audits what publication actually exposes: the full commit history...",
+      "tags": [
+        "agent",
+        "security"
+      ],
+      "github_url": "https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/agents/security/repo-publication-auditor.md",
+      "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/agents/security/repo-publication-auditor.md"
     },
     {
       "id": "agents__security__se-security-reviewer",
@@ -16037,6 +16055,42 @@
       "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/mcps/deepresearch/mcp-server-nia.json"
     },
     {
+      "id": "mcps__devtools__5dive-mcp",
+      "name": "5dive mcp",
+      "slug": "5dive-mcp",
+      "type": "mcps",
+      "type_label": "MCPs",
+      "category": "devtools",
+      "path": "cli-tool/components/mcps/devtools/5dive-mcp.json",
+      "install_key": "devtools/5dive-mcp",
+      "install": "npx claude-code-templates@latest --mcp devtools/5dive-mcp --yes",
+      "summary": "Model Context Protocol (stdio) server for 5dive. Exposes the 5dive agent-fleet CLI (tasks, agents, digest) as MCP tools.",
+      "tags": [
+        "mcp",
+        "devtools"
+      ],
+      "github_url": "https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/mcps/devtools/5dive-mcp.json",
+      "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/mcps/devtools/5dive-mcp.json"
+    },
+    {
+      "id": "mcps__devtools__agentplat-docs",
+      "name": "agentplat docs",
+      "slug": "agentplat-docs",
+      "type": "mcps",
+      "type_label": "MCPs",
+      "category": "devtools",
+      "path": "cli-tool/components/mcps/devtools/agentplat-docs.json",
+      "install_key": "devtools/agentplat-docs",
+      "install": "npx claude-code-templates@latest --mcp devtools/agentplat-docs --yes",
+      "summary": "Read-only AgentPlat documentation MCP for Agent Rooms, Agent Mesh, governed multi-agent runtimes, inference control, trust, and evidence boundaries.",
+      "tags": [
+        "mcp",
+        "devtools"
+      ],
+      "github_url": "https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/mcps/devtools/agentplat-docs.json",
+      "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/mcps/devtools/agentplat-docs.json"
+    },
+    {
       "id": "mcps__devtools__android-mcp",
       "name": "android mcp",
       "slug": "android-mcp",
@@ -16613,6 +16667,24 @@
       "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/mcps/devtools/mongodb.json"
     },
     {
+      "id": "mcps__devtools__nable",
+      "name": "nable",
+      "slug": "nable",
+      "type": "mcps",
+      "type_label": "MCPs",
+      "category": "devtools",
+      "path": "cli-tool/components/mcps/devtools/nable.json",
+      "install_key": "devtools/nable",
+      "install": "npx claude-code-templates@latest --mcp devtools/nable --yes",
+      "summary": "Local-first FinOps server for cloud and AI spend. Answers cost questions across AWS, Azure, GCP, Kubernetes and 15+ SaaS and AI providers, detects anomalies against a rolling baseline, tracks LLM spend by model, and...",
+      "tags": [
+        "mcp",
+        "devtools"
+      ],
+      "github_url": "https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/mcps/devtools/nable.json",
+      "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/mcps/devtools/nable.json"
+    },
+    {
       "id": "mcps__devtools__nika",
       "name": "nika",
       "slug": "nika",
@@ -16917,6 +16989,24 @@
       ],
       "github_url": "https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/mcps/integration/github-integration.json",
       "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/mcps/integration/github-integration.json"
+    },
+    {
+      "id": "mcps__integration__livetennisapi",
+      "name": "livetennisapi",
+      "slug": "livetennisapi",
+      "type": "mcps",
+      "type_label": "MCPs",
+      "category": "integration",
+      "path": "cli-tool/components/mcps/integration/livetennisapi.json",
+      "install_key": "integration/livetennisapi",
+      "install": "npx claude-code-templates@latest --mcp integration/livetennisapi --yes",
+      "summary": "Real-time and historical tennis data for LLM agents — live scores, match state (server, break point, retirement/walkover), players, rankings, fixtures, head-to-head and the 1968-2022 results archive across ATP, WTA,...",
+      "tags": [
+        "mcp",
+        "integration"
+      ],
+      "github_url": "https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/mcps/integration/livetennisapi.json",
+      "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/mcps/integration/livetennisapi.json"
     },
     {
       "id": "mcps__integration__memex-mcp",
@@ -17315,6 +17405,24 @@
       "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/mcps/web-data/datalikers.json"
     },
     {
+      "id": "mcps__web-data__dimhour",
+      "name": "dimhour",
+      "slug": "dimhour",
+      "type": "mcps",
+      "type_label": "MCPs",
+      "category": "web-data",
+      "path": "cli-tool/components/mcps/web-data/dimhour.json",
+      "install_key": "web-data/dimhour",
+      "install": "npx claude-code-templates@latest --mcp web-data/dimhour --yes",
+      "summary": "Search ~19,000 scored places to eat and drink across 20 cities worldwide, with booking links.",
+      "tags": [
+        "mcp",
+        "web-data"
+      ],
+      "github_url": "https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/mcps/web-data/dimhour.json",
+      "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/mcps/web-data/dimhour.json"
+    },
+    {
       "id": "mcps__web-data__explorium",
       "name": "explorium",
       "slug": "explorium",
@@ -17367,6 +17475,42 @@
       ],
       "github_url": "https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/mcps/web-data/lamatok.json",
       "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/mcps/web-data/lamatok.json"
+    },
+    {
+      "id": "mcps__web-data__scavio",
+      "name": "scavio",
+      "slug": "scavio",
+      "type": "mcps",
+      "type_label": "MCPs",
+      "category": "web-data",
+      "path": "cli-tool/components/mcps/web-data/scavio.json",
+      "install_key": "web-data/scavio",
+      "install": "npx claude-code-templates@latest --mcp web-data/scavio --yes",
+      "summary": "Real-time structured web data across 32 platforms with one API key: Google search, YouTube, Amazon, Walmart, eBay, Target, TikTok, Instagram, LinkedIn, X, Reddit, Zillow, Indeed, SEC EDGAR and more, plus...",
+      "tags": [
+        "mcp",
+        "web-data"
+      ],
+      "github_url": "https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/mcps/web-data/scavio.json",
+      "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/mcps/web-data/scavio.json"
+    },
+    {
+      "id": "mcps__web-data__sicex",
+      "name": "sicex",
+      "slug": "sicex",
+      "type": "mcps",
+      "type_label": "MCPs",
+      "category": "web-data",
+      "path": "cli-tool/components/mcps/web-data/sicex.json",
+      "install_key": "web-data/sicex",
+      "install": "npx claude-code-templates@latest --mcp web-data/sicex --yes",
+      "summary": "Sicex MCP — global trade intelligence: search and analyze customs import/export records and maritime shipment data across markets in the Americas, the European Union, and Asia. Tools cover data-source and filter...",
+      "tags": [
+        "mcp",
+        "web-data"
+      ],
+      "github_url": "https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/mcps/web-data/sicex.json",
+      "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/mcps/web-data/sicex.json"
     },
     {
       "id": "sandbox__cloudflare__IMPLEMENTATION_SUMMARY",
@@ -17781,6 +17925,24 @@
       ],
       "github_url": "https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/settings/global/company-announcements.json",
       "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/settings/global/company-announcements.json"
+    },
+    {
+      "id": "settings__global__concise-mode",
+      "name": "concise mode",
+      "slug": "concise-mode",
+      "type": "settings",
+      "type_label": "Settings",
+      "category": "global",
+      "path": "cli-tool/components/settings/global/concise-mode.json",
+      "install_key": "global/concise-mode",
+      "install": "npx claude-code-templates@latest --setting global/concise-mode --yes",
+      "summary": "Make Claude Code as concise as possible: sets the Concise output style so responses lead with results and skip preamble, and turns off non-essential chat noise (spinner tips, away recap, verbose output). Ideal for...",
+      "tags": [
+        "setting",
+        "global"
+      ],
+      "github_url": "https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/settings/global/concise-mode.json",
+      "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/settings/global/concise-mode.json"
     },
     {
       "id": "settings__global__custom-model",
@@ -24284,7 +24446,7 @@
       "path": "cli-tool/components/skills/development/agirails-agent-payments/SKILL.md",
       "install_key": "development/agirails-agent-payments",
       "install": "npx claude-code-templates@latest --skill development/agirails-agent-payments --yes",
-      "summary": "You are a payments engineer for the AI agent economy. Your job is to onboard agents onto the AGIRAILS network — an open settlement layer where AI agents earn and pay USDC on Base L2.",
+      "summary": "AI agent payment infrastructure — ACTP escrow, x402 instant payments, USDC settlement on Base L2. Interactive onboarding: asks your preferences, generates customized agent code, and verifies setup. Covers...",
       "tags": [
         "skill",
         "development"
@@ -29543,7 +29705,7 @@
       "path": "cli-tool/components/skills/media/speech/SKILL.md",
       "install_key": "media/speech",
       "install": "npx claude-code-templates@latest --skill media/speech --yes",
-      "summary": "Use when the user asks for text-to-speech narration or voiceover, accessibility reads, audio prompts, or batch speech generation via the OpenAI Audio API; run the bundled CLI (`scripts/text_to_speech.py`) with...",
+      "summary": "Use when the user asks for text-to-speech narration or voiceover, accessibility reads, audio prompts, or batch speech generation. OpenAI remains the default; Atlas Cloud is an explicit optional backend for...",
       "tags": [
         "skill",
         "media"
@@ -29586,6 +29748,24 @@
       ],
       "github_url": "https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/skills/media/video-downloader/SKILL.md",
       "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/skills/media/video-downloader/SKILL.md"
+    },
+    {
+      "id": "skills__open-banking-io__open-banking-io",
+      "name": "open-banking-io",
+      "slug": "open-banking-io",
+      "type": "skills",
+      "type_label": "Skills",
+      "category": "open-banking-io",
+      "path": "cli-tool/components/skills/open-banking-io/open-banking-io/SKILL.md",
+      "install_key": "open-banking-io/open-banking-io",
+      "install": "npx claude-code-templates@latest --skill open-banking-io/open-banking-io --yes",
+      "summary": "Read bank account balances and transactions from EU/UK banks via the open-banking.io PSD2 API. Use when the user wants to check balances, list recent transactions, categorise spending, or reconcile payments across...",
+      "tags": [
+        "skill",
+        "open-banking-io"
+      ],
+      "github_url": "https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/skills/open-banking-io/open-banking-io/SKILL.md",
+      "readme_url": "https://raw.githubusercontent.com/QB-Chen/claude-code-templates/main/cli-tool/components/skills/open-banking-io/open-banking-io/SKILL.md"
     },
     {
       "id": "skills__operations__abc-xyz-segmentation",
@@ -32920,7 +33100,7 @@
     },
     {
       "id": "skills__scientific__scholar-evaluation",
-      "name": "scholar evaluation",
+      "name": "scholar-evaluation",
       "slug": "scholar-evaluation",
       "type": "skills",
       "type_label": "Skills",

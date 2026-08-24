@@ -1,6 +1,6 @@
 # Claude Code Templates - Agent Catalog
 
-> Lean index of 1916 Claude Code components (agents, commands, skills, MCPs, hooks, settings, loops).
+> Lean index of 1926 Claude Code components (agents, commands, skills, MCPs, hooks, settings, loops).
 > Source: https://github.com/QB-Chen/claude-code-templates
 > Official browse UI: https://aitmpl.com
 
@@ -20,7 +20,7 @@
 
 ## Types
 
-### Agents (421)
+### Agents (422)
 
 - [3d-artist](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/agents/game-development/3d-artist.md): 3D art and asset creation specialist for game development. Use PROACTIVELY for 3D modeling, texturing, animation, asset optimization, and te | `npx claude-code-templates@latest --agent game-development/3d-artist --yes`
 - [4.1-Beast](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/agents/expert-advisors/4.1-Beast.md): GPT 4.1 as a top-notch coding agent. | `npx claude-code-templates@latest --agent expert-advisors/4.1-Beast --yes`
@@ -31,7 +31,7 @@
 - [accessibility-tester](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/agents/development-tools/accessibility-tester.md): Use this agent when you need comprehensive accessibility testing, WCAG compliance verification, or assessment of assistive technology suppor | `npx claude-code-templates@latest --agent development-tools/accessibility-tester --yes`
 - [ad-security-reviewer](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/agents/security/ad-security-reviewer.md): Use this agent when you need to audit Active Directory security posture, evaluate privilege escalation risks, review identity delegation pat | `npx claude-code-templates@latest --agent security/ad-security-reviewer --yes`
 - [address-comments](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/agents/expert-advisors/address-comments.md): Address PR comments | `npx claude-code-templates@latest --agent expert-advisors/address-comments --yes`
-- [adr-generator](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/agents/data-ai/adr-generator.md): Expert agent for creating comprehensive Architectural Decision Records (ADRs) with structured formatting optimized for AI consumption and hu | `npx claude-code-templates@latest --agent data-ai/adr-generator --yes`
+- [adr-generator](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/agents/data-ai/adr-generator.md): Use when you need to formalize a technical or architectural decision as a structured Architectural Decision Record (ADR), or when a team has | `npx claude-code-templates@latest --agent data-ai/adr-generator --yes`
 - [aem-frontend-specialist](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/agents/web-tools/aem-frontend-specialist.md): Expert assistant for developing AEM components using HTL, Tailwind CSS, and Figma-to-code workflows with design system integration | `npx claude-code-templates@latest --agent web-tools/aem-frontend-specialist --yes`
 - [agent overview](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/agents/deep-research-team/agent-overview.md): [Open Deep Research Team Diagram](../../../images/research_team_diagram.html) | `npx claude-code-templates@latest --agent deep-research-team/agent-overview --yes`
 - [agent-expert](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/agents/expert-advisors/agent-expert.md): |- | `npx claude-code-templates@latest --agent expert-advisors/agent-expert --yes`
@@ -47,7 +47,7 @@
 - [api-documenter](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/agents/documentation/api-documenter.md): Use this agent when creating or improving API documentation, writing OpenAPI specifications, building interactive documentation portals, or  | `npx claude-code-templates@latest --agent documentation/api-documenter --yes`
 - [api-security-audit](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/agents/security/api-security-audit.md): API security audit specialist. Use PROACTIVELY for REST API security audits, authentication vulnerabilities, authorization flaws, injection  | `npx claude-code-templates@latest --agent security/api-security-audit --yes`
 - [apify-integration-expert](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/agents/devops-infrastructure/apify-integration-expert.md): Expert agent for integrating Apify Actors into codebases. Handles Actor selection, workflow design, implementation across JavaScript/TypeScr | `npx claude-code-templates@latest --agent devops-infrastructure/apify-integration-expert --yes`
-- ... and 396 more — see catalog.json
+- ... and 397 more — see catalog.json
 
 ### Commands (346)
 
@@ -128,8 +128,10 @@
 - [test-coverage-loop](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/loops/engineering/test-coverage-loop.md): Adds meaningful tests pass after pass until the suite reaches a target coverage threshold and stays green. | `npx claude-code-templates@latest --loop engineering/test-coverage-loop --yes`
 - [ticket-to-pr-loop](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/loops/engineering/ticket-to-pr-loop.md): Converts open bug reports and issues into verified, reviewer-ready pull requests, one ticket per pass. | `npx claude-code-templates@latest --loop engineering/ticket-to-pr-loop --yes`
 
-### MCPs (94)
+### MCPs (101)
 
+- [5dive mcp](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/mcps/devtools/5dive-mcp.json): Model Context Protocol (stdio) server for 5dive. Exposes the 5dive agent-fleet CLI (tasks, agents, digest) as MCP tools. | `npx claude-code-templates@latest --mcp devtools/5dive-mcp --yes`
+- [agentplat docs](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/mcps/devtools/agentplat-docs.json): Read-only AgentPlat documentation MCP for Agent Rooms, Agent Mesh, governed multi-agent runtimes, inference control, trust, and evidence bou | `npx claude-code-templates@latest --mcp devtools/agentplat-docs --yes`
 - [alpaca trading](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/mcps/integration/alpaca-trading.json): Trading platform MCP server enabling stock, ETF, crypto, and options trading via Alpaca's API. Supports market data, portfolio management, a | `npx claude-code-templates@latest --mcp integration/alpaca-trading --yes`
 - [android mcp](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/mcps/devtools/android-mcp.json): MCP Server for interacting with Android devices. Control, inspect, and automate Android devices via ADB through Claude. | `npx claude-code-templates@latest --mcp devtools/android-mcp --yes`
 - [apify](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/mcps/web-data/apify.json): Extract data from social media, search engines, maps, and e-commerce sites using Apify's ready-made scrapers and actors via MCP. | `npx claude-code-templates@latest --mcp web-data/apify --yes`
@@ -151,11 +153,9 @@
 - [deepgraph typescript](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/mcps/deepgraph/deepgraph-typescript.json): Comprehensive TypeScript code analysis with type mapping, interface relationships, and module dependency tracking. | `npx claude-code-templates@latest --mcp deepgraph/deepgraph-typescript --yes`
 - [deepgraph vue](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/mcps/deepgraph/deepgraph-vue.json): Analyze Vue.js applications including component composition, reactive data flow, and template-script relationships. | `npx claude-code-templates@latest --mcp deepgraph/deepgraph-vue --yes`
 - [devplan mcp](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/mcps/devtools/devplan-mcp.json): MCP integration: devplan-mcp | `npx claude-code-templates@latest --mcp devtools/devplan-mcp --yes`
+- [dimhour](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/mcps/web-data/dimhour.json): Search ~19,000 scored places to eat and drink across 20 cities worldwide, with booking links. | `npx claude-code-templates@latest --mcp web-data/dimhour --yes`
 - [dynatrace](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/mcps/devtools/dynatrace.json): Manage and interact with the Dynatrace Platform for real-time observability and monitoring. | `npx claude-code-templates@latest --mcp devtools/dynatrace --yes`
-- [elasticsearch](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/mcps/devtools/elasticsearch.json): MCP server for connecting to Elasticsearch data and indices. Supports search queries, mappings, ES|QL, and shard information through natural | `npx claude-code-templates@latest --mcp devtools/elasticsearch --yes`
-- [elevenlabs](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/mcps/audio/elevenlabs.json): Official ElevenLabs MCP for text-to-speech, voice cloning, audio processing, and transcription. Generate AI voices, design custom voices, is | `npx claude-code-templates@latest --mcp audio/elevenlabs --yes`
-- [explorium](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/mcps/web-data/explorium.json): Explorium MCP — live B2B company and contact data (150M+ businesses, 800M+ professionals, 4,000+ signals, 50+ data sources) for lead-list bu | `npx claude-code-templates@latest --mcp web-data/explorium --yes`
-- ... and 69 more — see catalog.json
+- ... and 76 more — see catalog.json
 
 ### Project templates (4)
 
@@ -173,7 +173,7 @@
 - [SANDBOX DEBUGGING](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/sandbox/cloudflare/SANDBOX_DEBUGGING.md): **File**: `launcher.ts` - Detailed logging of each execution step - Worker availability checks - Code generation monitoring - Fallback to di | `npx claude-code-templates@latest --sandbox cloudflare/SANDBOX_DEBUGGING --yes`
 - [SANDBOX DEBUGGING](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/sandbox/e2b/SANDBOX_DEBUGGING.md): **Archivo**: `e2b-launcher.py` - Logging detallado de cada paso - Verificación de instalación de Claude Code - Monitoreo de permisos y ambie | `npx claude-code-templates@latest --sandbox e2b/SANDBOX_DEBUGGING --yes`
 
-### Settings (70)
+### Settings (71)
 
 - [additional directories](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/settings/permissions/additional-directories.json): Grant access to additional directories outside the current project. Useful for monorepo setups, shared libraries, or when working with docum | `npx claude-code-templates@latest --setting permissions/additional-directories --yes`
 - [allow git operations](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/settings/permissions/allow-git-operations.json): Allow common git operations for version control workflow. Permits git status, diff, add, commit, and push operations while maintaining secur | `npx claude-code-templates@latest --setting permissions/allow-git-operations --yes`
@@ -190,6 +190,7 @@
 - [colorful statusline](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/settings/statusline/colorful-statusline.json): Colorful status line with ANSI color codes for enhanced visual appeal. Uses colors to distinguish between different information types: blue  | `npx claude-code-templates@latest --setting statusline/colorful-statusline --yes`
 - [command statusline](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/settings/statusline/command-statusline.json): Configure a custom status line using a shell command that receives session context via JSON stdin. The script can display model name, curren | `npx claude-code-templates@latest --setting statusline/command-statusline --yes`
 - [company announcements](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/settings/global/company-announcements.json): Display custom company announcements in Claude Code. Replace the example messages in the 'companyAnnouncements' array with your own organiza | `npx claude-code-templates@latest --setting global/company-announcements --yes`
+- [concise mode](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/settings/global/concise-mode.json): Make Claude Code as concise as possible: sets the Concise output style so responses lead with results and skip preamble, and turns off non-e | `npx claude-code-templates@latest --setting global/concise-mode --yes`
 - [context monitor](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/settings/statusline/context-monitor.json): Real-time Claude Code context usage monitor with visual progress bars, color-coded alerts, session analytics (cost, duration, lines changed) | `npx claude-code-templates@latest --setting statusline/context-monitor --yes`
 - [corporate proxy](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/settings/api/corporate-proxy.json): Configure proxy settings for corporate network environments. Allows Claude Code to work behind corporate firewalls and proxy servers while m | `npx claude-code-templates@latest --setting api/corporate-proxy --yes`
 - [custom headers](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/settings/api/custom-headers.json): Add custom headers to API requests for specialized authentication or routing requirements. Useful for enterprise deployments with custom aut | `npx claude-code-templates@latest --setting api/custom-headers --yes`
@@ -199,10 +200,9 @@
 - [deadline countdown](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/settings/statusline/deadline-countdown.json): Deadline day statusline with git branch, changed files count, and countdown timer to a configurable deadline. Color-coded urgency. Set DEADL | `npx claude-code-templates@latest --setting statusline/deadline-countdown --yes`
 - [deny sensitive files](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/settings/permissions/deny-sensitive-files.json): Deny access to sensitive files like environment variables and secrets. | `npx claude-code-templates@latest --setting permissions/deny-sensitive-files --yes`
 - [development mode](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/settings/permissions/development-mode.json): Comprehensive permissions for active development. Allows most development tools and operations while maintaining security boundaries. Ideal  | `npx claude-code-templates@latest --setting permissions/development-mode --yes`
-- [development utils](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/settings/environment/development-utils.json): Enhanced development environment configuration with useful utilities and debugging features. Includes built-in ripgrep usage, terminal title | `npx claude-code-templates@latest --setting environment/development-utils --yes`
-- ... and 45 more — see catalog.json
+- ... and 46 more — see catalog.json
 
-### Skills (895)
+### Skills (896)
 
 - [2d-games](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/skills/creative-design/game-development/2d-games/SKILL.md): 2D game development principles. Sprites, tilemaps, physics, camera. | `npx claude-code-templates@latest --skill creative-design/2d-games --yes`
 - [3d-games](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/skills/creative-design/game-development/3d-games/SKILL.md): 3D game development principles. Rendering, shaders, physics, cameras. | `npx claude-code-templates@latest --skill creative-design/3d-games --yes`
@@ -226,7 +226,7 @@
 - [agent-messaging](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/skills/ai-maestro/agent-messaging/SKILL.md): Send and receive cryptographically signed messages between AI agents using the Agent Messaging Protocol (AMP). Use when the user asks to "se | `npx claude-code-templates@latest --skill ai-maestro/agent-messaging --yes`
 - [agent-tool-builder](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/skills/ai-research/agent-tool-builder/SKILL.md): Tools are how AI agents interact with the world. A well-designed tool is the difference between an agent that works and one that hallucinate | `npx claude-code-templates@latest --skill ai-research/agent-tool-builder --yes`
 - [agile-product-owner](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/skills/business-marketing/agile-product-owner/SKILL.md): Agile product ownership toolkit for Senior Product Owner including INVEST-compliant user story generation, sprint planning, backlog manageme | `npx claude-code-templates@latest --skill business-marketing/agile-product-owner --yes`
-- [agirails-agent-payments](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/skills/development/agirails-agent-payments/SKILL.md): You are a payments engineer for the AI agent economy. Your job is to onboard agents onto the AGIRAILS network — an open settlement layer whe | `npx claude-code-templates@latest --skill development/agirails-agent-payments --yes`
+- [agirails-agent-payments](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/skills/development/agirails-agent-payments/SKILL.md): AI agent payment infrastructure — ACTP escrow, x402 instant payments, USDC settlement on Base L2. Interactive onboarding: asks your preferen | `npx claude-code-templates@latest --skill development/agirails-agent-payments --yes`
 - [ai-agents-architect](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/skills/ai-research/ai-agents-architect/SKILL.md): Expert in designing and building autonomous AI agents. Masters tool use, memory systems, planning strategies, and multi-agent orchestration. | `npx claude-code-templates@latest --skill ai-research/ai-agents-architect --yes`
 - [ai-product](https://github.com/QB-Chen/claude-code-templates/tree/main/cli-tool/components/skills/business-marketing/ai-product/SKILL.md): Every product will be AI-powered. The question is whether you'll build it right or ship a demo that falls apart in production. This skill co | `npx claude-code-templates@latest --skill business-marketing/ai-product --yes`
-- ... and 870 more — see catalog.json
+- ... and 871 more — see catalog.json
