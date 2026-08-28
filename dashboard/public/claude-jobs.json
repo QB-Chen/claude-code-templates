@@ -1,12 +1,32 @@
 {
-  "lastUpdated": "2026-08-27T13:39:10.537530+00:00",
-  "totalJobs": 103,
+  "lastUpdated": "2026-08-28T14:49:50.276754+00:00",
+  "totalJobs": 105,
   "sources": [
     "Anthropic",
     "HackerNews",
     "WeWorkRemotely"
   ],
   "jobs": [
+    {
+      "id": "anth-5407337008",
+      "company": "Anthropic",
+      "position": "Product Manager, Beneficial Deployments (Labs)",
+      "location": "San Francisco, CA | New York City, NY",
+      "remote": false,
+      "salary": "",
+      "description": "Claude has had commercial impact, but there’s significantly more that frontier AI can do outside of general use cases. Some of the largest opportunities: a step change in health, education, and economic opportunity for the people and institutions the technology would otherwise reach last, sit...",
+      "applyUrl": "https://job-boards.greenhouse.io/anthropic/jobs/5407337008",
+      "source": "Anthropic",
+      "sourceUrl": "https://job-boards.greenhouse.io/anthropic/jobs/5407337008",
+      "postedAt": "2026-08-27T15:48:13-04:00",
+      "tags": [
+        "Rust",
+        "AWS",
+        "Claude Code",
+        "Anthropic"
+      ],
+      "companyIcon": "https://www.anthropic.com/favicon.ico"
+    },
     {
       "id": "anth-5392054008",
       "company": "Anthropic",
@@ -2010,6 +2030,27 @@
         "GCP",
         "Azure",
         "Kubernetes",
+        "Claude Code",
+        "Anthropic"
+      ],
+      "companyIcon": "https://www.anthropic.com/favicon.ico"
+    },
+    {
+      "id": "anth-5125387008",
+      "company": "Anthropic",
+      "position": "Data Engineering Manager, Product",
+      "location": "San Francisco, CA | New York City, NY | Seattle, WA",
+      "remote": false,
+      "salary": "",
+      "description": "As a Data Engineering Manager focused on Product, you will build and lead the analytics engineering team responsible for creating the data foundations that enable data-driven decision making across Anthropic’s Product organization. You will oversee the development of scalable data solutions for...",
+      "applyUrl": "https://job-boards.greenhouse.io/anthropic/jobs/5125387008",
+      "source": "Anthropic",
+      "sourceUrl": "https://job-boards.greenhouse.io/anthropic/jobs/5125387008",
+      "postedAt": "2026-02-19T19:49:54-05:00",
+      "tags": [
+        "Python",
+        "Rust",
+        "AWS",
         "Claude Code",
         "Anthropic"
       ],
